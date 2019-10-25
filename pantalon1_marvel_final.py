@@ -1,7 +1,7 @@
 import csv
 import re
 file='marvel-wikia-data.csv'
-#Imports necessary packages and defines the file to be used in this program
+#Imports all  necessary packages and defines the file to be used in this program
 
 def sort(file):
 #Splits each characters info into arrays and returns said arrays to be used in search
@@ -23,7 +23,7 @@ def sort(file):
 
     with open(file) as marveldata:
         marvelread = csv.reader(marveldata)
-        #opens csv file
+        #opens the csv file
         for row in marvelread:
             index.append(row[0])
             names.append(row[1])
@@ -38,21 +38,21 @@ def sort(file):
             appearance.append(row[10])
             date.append(row[11])
             year.append(row[12])
-            #iterates through rows of csv file and fills arrays with info for each hero
+            #iterates through the rows of the csv file and fills arrays with info for each hero
     nhero=len(index)
     return index, names, url, public, gbn, eyes, hair, gender, gsm, live, appearance, date, year, nhero
 
 class search:
     #search functions
     def yearsearch(yearinput,nhero):
-        #search through file by year of first appearance
+        #search through the file by year of first appearance
         yearinput=str(yearinput)
         yearmatches = []
         #creates an empty array that will be used to store all characters which debuted in that year
         for i in range(0, nhero):
             if year[i] == yearinput:
                 yearmatches.append(i)
-                #fills array with matches
+                #fills the array with matches
         return yearmatches
 
     def namesearch(nameinput,nhero):
@@ -72,7 +72,7 @@ class user:
         print("Matching Characters:")
         for k in range(0,len(namematches)):
             print(k, names[namematches[k]])
-            #lists all matching characters with an indexing number
+            #lists all of the matching characters with an indexing number
         charselect = input("Enter the number next to the character you'd like to learn more about:")
         charselect = int(charselect)
         print("Index Number: ", index[namematches[charselect]])
